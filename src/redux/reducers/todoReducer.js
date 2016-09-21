@@ -14,6 +14,7 @@ let todoReducer = function(todos = [], action) {
           time: action.time,
           party: action.party,
           pager: action.pager,
+          waitTime: action.waitTime,
           completed: false,
           id: getId(todos)
         }, ...todos]

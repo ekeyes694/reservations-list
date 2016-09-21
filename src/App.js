@@ -6,12 +6,16 @@ import UserInfo from './components/UserInfo';
 import actions from './redux/actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Clock from 'react-clock';
 
 class App extends Component {
 
   render() {
     return (
       <div>
+        <div>
+        <Clock />
+        </div>
         <h1>User</h1>
         <hr />
         <UserInfo user={this.props.user} createNewUserId={this.props.actions.createNewUserId}/>

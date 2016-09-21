@@ -7,13 +7,8 @@ let actions = {
             name: todo.guestInput,
             time: todo.timeInput,
             party: todo.partyInput,
-            pager: todo.pagerInput
-        }
-    },
-    completeTodo: function (id) {
-        return {
-            type: 'COMPLETE_TODO',
-            id: id
+            pager: todo.pagerInput,
+            waitTime: todo.waitTimeInput
         }
     },
     deleteTodo: function (id) {

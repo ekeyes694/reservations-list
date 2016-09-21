@@ -10,26 +10,29 @@ class TodoInput extends Component {
       guestInput: '',
       timeInput: '',
       partyInput: '',
-      pagerInput: ''
+      pagerInput: '',
+      waitTimeInput: ''
     }
   }
   handleSubmit(e) {
     e.preventDefault();
 
-    const { guestInput, timeInput, partyInput, pagerInput } = this.state;
+    const { guestInput, timeInput, partyInput, pagerInput, waitTimeInput } = this.state;
 
     this.props.todoAction.addTodo({
       guestInput, 
       timeInput, 
       partyInput, 
-      pagerInput
+      pagerInput,
+      waitTimeInput
     });
 
     this.setState({
       guestInput: '',
       timeInput: '',
       partyInput: '',
-      pagerInput: ''
+      pagerInput: '',
+      waitTimeInput: ''
     })
   }
 
@@ -46,6 +49,9 @@ class TodoInput extends Component {
   enterPager(e) {
     this.setState({pagerInput: e.target.value})
   }
+  enterWaitTime(e) {
+      this.setState({waitTimeInput: e.target.value})
+  }
   render() {
     return (
       <div>
@@ -53,9 +59,10 @@ class TodoInput extends Component {
         <hr />
         <form onSubmit={e => this.handleSubmit(e)}>
           <input type='text' placeholder="Name" value={this.state.guestInput} onChange={e => this.enterGuest(e)} />
-          <input type='number' placeholder="Reservation Time" value={this.state.timeInput} onChange={e => this.enterReservation(e)} />
+          <input type='time' placeholder="Reservation Time" value={this.state.timeInput} onChange={e => this.enterReservation(e)} />
           <input type='number' placeholder="Number in Party" value={this.state.partyInput} onChange={e => this.enterParty(e)} />
           <input type='number' placeholder="Pager Number" value={this.state.pagerInput} onChange={e => this.enterPager(e)} />
+          <input type='number' placeholder="Wait Time(minutes)" value={this.state.waitTimeInput} onChange={e => this.enterWaitTime(e)} />
           <input type='submit' text='Submit' />
         </form>
       </div>
